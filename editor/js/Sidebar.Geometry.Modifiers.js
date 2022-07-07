@@ -12,34 +12,21 @@ function SidebarGeometryModifiers( editor, object ) {
 
 	// Compute Vertex Normals
 
-	const computeVertexNormalsButton = new UIButton( strings.getKey( 'sidebar/geometry/compute_vertex_normals' ) );
-	computeVertexNormalsButton.onClick( function () {
+	const button = new UIButton( strings.getKey( 'sidebar/geometry/show_vertex_normals' ) );
+	button.onClick( function () {
 
 		geometry.computeVertexNormals();
 
-		signals.geometryChanged.dispatch( object );
-
-	} );
-
-	const computeVertexNormalsRow = new UIRow();
-	computeVertexNormalsRow.add( computeVertexNormalsButton );
-	container.add( computeVertexNormalsRow );
-
-
-	// Center Geometry
-
-	const centerButton = new UIButton( strings.getKey( 'sidebar/geometry/center' ) );
-	centerButton.onClick( function () {
-
-		geometry.center();
+		geometry.attributes.normal.needsUpdate = true;
 
 		signals.geometryChanged.dispatch( object );
 
 	} );
 
-	const centerRow = new UIRow();
-	centerRow.add( centerButton );
-	container.add( centerRow );
+	const row = new UIRow();
+	row.add( button );
+
+	container.add( row );
 
 	//
 

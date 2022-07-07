@@ -74,6 +74,8 @@
 
 					gltf.scene.traverse( function ( child ) {
 
+						console.log( gltf );
+
 						if ( child.isMesh ) {
 
 							// glTF currently supports only tangent-space normal maps.

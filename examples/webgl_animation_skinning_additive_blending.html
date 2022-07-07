@@ -116,6 +116,8 @@
 
 					numAnimations = animations.length;
 
+					console.log( animations );
+
 					for ( let i = 0; i !== numAnimations; ++ i ) {
 
 						let clip = animations[ i ];
@@ -203,10 +205,10 @@
 						const currentAction = currentSettings ? currentSettings.action : null;
 						const action = settings ? settings.action : null;
 
-						if ( currentAction !== action ) { 
-						
+						if ( currentAction !== action ) {
+			
 							prepareCrossFade( currentAction, action, 0.35 );
-						
+			
 						}
 
 					};
